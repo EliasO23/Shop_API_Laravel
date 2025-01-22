@@ -33,6 +33,9 @@ class Users extends Model
         ];
     }
     
+    /**
+     * Foreign key relationship with orders table.
+     */
     public function orders()
     {
         return $this->hasMany(Orders::class, 'user_id');

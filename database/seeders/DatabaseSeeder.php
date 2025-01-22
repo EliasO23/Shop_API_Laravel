@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        // Users::factory(50)->create();
-
-         // Crear 50 usuarios y, para cada uno, generar entre 1 y 5 órdenes.
+        
+         /*
+         * Create 50 users, each with 1 to 5 orders
+         */
          Users::factory(50)->create()->each(function ($users) {
             Orders::factory(rand(1, 5))->create([
                 'user_id' => $users->id,

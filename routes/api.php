@@ -4,24 +4,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\OrdersController;
-use App\Models\Orders;
-use App\Models\Users;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
 
-
+/**
+ * Routes for users, login, and register
+ */
 Route::get('users', [UsersController::class, 'getAllUsers']);
 Route::post('register', [UsersController::class, 'register']);
 Route::post('login', [UsersController::class, 'login']);
 
+/**
+ * Routes for orders with middleware auth:sanctum
+ */
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UsersController::class, 'logout']);
 
     Route::group(['prefix' => '/orders'], function () {
-
         Route::get('/', [OrdersController::class, 'index']);
         Route::post('create', [OrdersController::class, 'store']);
         Route::get('details', [OrdersController::class, 'ordersWithUserDetails']);

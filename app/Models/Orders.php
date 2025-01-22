@@ -13,6 +13,9 @@ class Orders extends Model
 
     protected $fillable = ['product', 'quantity', 'total', 'user_id'];
 
+    /**
+     * Foreing key relationship with users table.
+     */
     public function user()
     {
         return $this->belongsTo(Users::class, 'user_id');
