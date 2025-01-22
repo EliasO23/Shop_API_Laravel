@@ -18,6 +18,9 @@ class UsersFactory extends Factory
      */
     public function definition(): array
     {
+        /*
+        * Create a new user with the following data with seeders
+        */
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),

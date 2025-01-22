@@ -70,7 +70,7 @@ class OrdersController extends Controller
      */
     public function ordersWithUserDetails()
     {
-        $orders = Orders::with(['user:name,email'])->get();
+        $orders = Orders::with(['user:id,name,email'])->get();
         return response()->json([
             'message' => 'Get all orders',
             'data' => $orders

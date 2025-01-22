@@ -16,6 +16,9 @@ class OrdersFactory extends Factory
      */
     public function definition(): array
     {
+        /*
+        * Create a new user with the following data with seeders
+        */
         $productNames = [
             'Smartphone Pro Max',
             'Wireless Earbuds',
